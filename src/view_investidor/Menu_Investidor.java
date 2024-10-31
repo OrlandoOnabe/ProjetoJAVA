@@ -61,11 +61,21 @@ public class Menu_Investidor extends javax.swing.JFrame {
 
         bt_despositar.setText("Depositar");
         bt_despositar.setActionCommand("");
+        bt_despositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_despositarActionPerformed(evt);
+            }
+        });
 
         lbl3.setText("3.");
 
         bt_sacar.setText("Sacar");
         bt_sacar.setActionCommand("");
+        bt_sacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_sacarActionPerformed(evt);
+            }
+        });
 
         lbl4.setText("4.");
 
@@ -181,6 +191,18 @@ public class Menu_Investidor extends javax.swing.JFrame {
         this.setVisible(false);
         cs.setVisible(true);
     }//GEN-LAST:event_bt_saldoActionPerformed
+
+    private void bt_despositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_despositarActionPerformed
+        Deposito d = new Deposito();
+        this.setVisible(false);
+        d.setVisible(true);
+    }//GEN-LAST:event_bt_despositarActionPerformed
+
+    private void bt_sacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_sacarActionPerformed
+        Saque s = new Saque();
+        this.setVisible(false);
+        s.setVisible(true);
+    }//GEN-LAST:event_bt_sacarActionPerformed
 
     /**
      * @param args the command line arguments

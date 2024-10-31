@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Investidor;
+import model.Moedas;
 
 /**
  *
@@ -27,5 +28,14 @@ public class CarteiraDAO {
         statement.execute();
         ResultSet resultado = statement.getResultSet();
         return resultado; 
+    }
+    
+    public void atualizar(Moedas saldo, Investidor senha) throws SQLException{
+        String sql = "update carteira set \"Real\" = ? where \"Senha\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, saldo.getSaldo());
+        statement.setString(2, senha.getSenha());
+        statement.execute();
+        conn.close();
     }
 }

@@ -4,18 +4,40 @@
  */
 package view_investidor;
 
+import controller_investidor.ControllerSaque;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Darcio Rodrigues
  */
-public class Sacar extends javax.swing.JFrame {
+public class Saque extends javax.swing.JFrame {
 
     /**
      * Creates new form Sacar
      */
-    public Sacar() {
+    public Saque() {
         initComponents();
+        c = new ControllerSaque(this);
     }
+
+    public JTextField getTxtSacar() {
+        return txtSacar;
+    }
+
+    public void setTxtSacar(JTextField txtSacar) {
+        this.txtSacar = txtSacar;
+    }
+
+    public JTextField getTxtSaldo() {
+        return txtSaldo;
+    }
+
+    public void setTxtSaldo(JTextField txtSaldo) {
+        this.txtSaldo = txtSaldo;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,15 +49,23 @@ public class Sacar extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl1 = new javax.swing.JLabel();
-        txt_valorSaque = new javax.swing.JTextField();
+        txtSacar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txt_saqueSaldo = new javax.swing.JTextField();
+        txtSaldo = new javax.swing.JTextField();
+        btSacar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl1.setText("Insira o valor a ser sacado:");
 
         jLabel1.setText("Saldo atual:");
+
+        btSacar.setText("Sacar");
+        btSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSacarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -47,12 +77,16 @@ public class Sacar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_saqueSaldo))
+                        .addComponent(txtSaldo))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_valorSaque, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtSacar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(83, 83, 83))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(btSacar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,16 +94,22 @@ public class Sacar extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl1)
-                    .addComponent(txt_valorSaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                    .addComponent(txtSacar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(btSacar)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txt_saqueSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                    .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
+        c.saqueReal();
+    }//GEN-LAST:event_btSacarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,11 +145,13 @@ public class Sacar extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private ControllerSaque c;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btSacar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl1;
-    private javax.swing.JTextField txt_saqueSaldo;
-    private javax.swing.JTextField txt_valorSaque;
+    private javax.swing.JTextField txtSacar;
+    private javax.swing.JTextField txtSaldo;
     // End of variables declaration//GEN-END:variables
 }

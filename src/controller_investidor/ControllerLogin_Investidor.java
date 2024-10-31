@@ -19,19 +19,24 @@ public class ControllerLogin_Investidor {
     
     public void loginInvestidor(){
         Investidor investidor = new Investidor(null, view.getTxtCPF().getText(), view.getTxtSenha().getText());
+        System.out.println("4");
         Conexao conexao = new Conexao();
+        System.out.println("5");
         try{
             Connection conn = conexao.getConnection();
+            System.out.println("1");
             InvestidorDAO dao = new InvestidorDAO(conn);
+            System.out.println("2");
             ResultSet res = dao.consultar(investidor);
+            System.out.println("3");
             if(res.next()){
                 JOptionPane.showMessageDialog(view, "Login feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 Menu_Investidor mn = new Menu_Investidor();
+                String senha = investidor.getSenha();
+                ControllerDeposito.setSENHA(senha);
+                ControllerSaque.setSENHA(senha);
                 view.setVisible(false);
                 mn.setVisible(true);
-//                String nome = res.getString("Nome");
-//                String usuario = res.getString("Usuario");
-//                String senha = res.getString("Senha");
             }else{
                 JOptionPane.showMessageDialog(view, "Login não foi efetuado", "Erro", JOptionPane.ERROR_MESSAGE);
             }

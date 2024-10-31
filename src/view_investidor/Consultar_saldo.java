@@ -8,10 +8,7 @@ import controller_investidor.ControllerConsultarSaldo_Investidor;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Darcio Rodrigues
- */
+
 public class Consultar_saldo extends javax.swing.JFrame {
 
     /**

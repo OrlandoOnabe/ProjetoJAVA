@@ -1,11 +1,13 @@
 package Projeto;
 
-import view_administrador.Cadastro_Administrador;
+import view_investidor.Login_Investidor;
+
+
 
 
 public class ExchangeDeCriptomoedas {
     public static void main(String[] args) {
-        Cadastro_Administrador j = new Cadastro_Administrador();
+        Login_Investidor j = new Login_Investidor();
         j.setVisible(true);
     }
 }

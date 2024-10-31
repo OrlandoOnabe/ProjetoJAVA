@@ -14,10 +14,7 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view_investidor.Consultar_saldo;
 
-/**
- *
- * @author xblak
- */
+
 public class ControllerConsultarSaldo_Investidor {
     private Consultar_saldo view;
 

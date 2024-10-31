@@ -4,6 +4,12 @@
  */
 package view_investidor;
 
+import controller_investidor.ControllerConsultarSaldo_Investidor;
+import controller_investidor.ControllerDeposito;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Darcio Rodrigues
@@ -15,8 +21,47 @@ public class Deposito extends javax.swing.JFrame {
      */
     public Deposito() {
         initComponents();
+        c = new ControllerDeposito(this);
     }
 
+    public JTextField getTxtDepositar() {
+        return txtDepositar;
+    }
+
+    public void setTxtDepositar(JTextField txtDepositar) {
+        this.txtDepositar = txtDepositar;
+    }
+
+    public JTextArea getTxtSaldo() {
+        return txtSaldo;
+    }
+
+    public void setTxtSaldo(JTextArea txtSaldo) {
+        this.txtSaldo = txtSaldo;
+    }
+
+    
+
+    
+/*
+    public JTextField getTxt_depositoSaldo() {
+        return txt_depositoSaldo;
+    }
+
+    public void setTxt_depositoSaldo(JTextField txt_depositoSaldo) {
+        this.txt_depositoSaldo = txt_depositoSaldo;
+    }
+*/
+    public JTextField getTxt_valorDeposito() {
+        return txtDepositar;
+    }
+
+    public void setTxt_valorDeposito(JTextField txt_valorDeposito) {
+        this.txtDepositar = txt_valorDeposito;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,50 +71,84 @@ public class Deposito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         lbl1 = new javax.swing.JLabel();
-        txt_valorDeposito = new javax.swing.JTextField();
+        txtDepositar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txt_depositoSaldo = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtSaldo = new javax.swing.JTextArea();
+        btDepositar = new javax.swing.JButton();
+
+        jLabel2.setText("Saldo atual:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lbl1.setText("Insira o valor a ser depositado:");
 
+        txtDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepositarActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("Saldo atual:");
+
+        txtSaldo.setColumns(20);
+        txtSaldo.setRows(5);
+        jScrollPane1.setViewportView(txtSaldo);
+
+        btDepositar.setText("Depositar");
+        btDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDepositarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_depositoSaldo))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_valorDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83))
+                        .addComponent(txtDepositar)))
+                .addGap(75, 75, 75))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(btDepositar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl1)
-                    .addComponent(txt_valorDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_depositoSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                    .addComponent(txtDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53)
+                .addComponent(btDepositar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepositarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepositarActionPerformed
+
+    private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed
+        c.depositoReal();
+    }//GEN-LAST:event_btDepositarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,10 +185,16 @@ public class Deposito extends javax.swing.JFrame {
 //        });
 //    }
 
+    
+    private ControllerDeposito c;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDepositar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl1;
-    private javax.swing.JTextField txt_depositoSaldo;
-    private javax.swing.JTextField txt_valorDeposito;
+    private javax.swing.JTextField txtDepositar;
+    private javax.swing.JTextArea txtSaldo;
     // End of variables declaration//GEN-END:variables
 }
