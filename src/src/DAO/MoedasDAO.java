@@ -10,32 +10,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.Investidor;
 import model.Moedas;
+import model.Ripple;
 
 /**
  *
  * @author xblak
  */
-public class CarteiraDAO {
+public class MoedasDAO {
     private Connection conn;
 
-    public CarteiraDAO(Connection conn) {
+    public MoedasDAO(Connection conn) {
         this.conn = conn;
     }
-    public ResultSet consultar(Investidor carteira) throws SQLException{
-        String sql = "select * from carteira where \"Senha\" = ?";
+    public ResultSet consultarmoeda(Moedas moedas) throws SQLException{
+        String sql = "select * from moeda where \"Tipo\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, carteira.getSenha());
+        statement.setString(1, moedas.getTipo());
         statement.execute();
         ResultSet resultado = statement.getResultSet();
         return resultado; 
     }
     
-    public void atualizar(Moedas saldo, Investidor senha) throws SQLException{
-        String sql = "update carteira set \"Real\" = ? where \"Senha\" = ?";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setDouble(1, saldo.getSaldo());
-        statement.setString(2, senha.getSenha());
-        statement.execute();
-        conn.close();
-    }
 }

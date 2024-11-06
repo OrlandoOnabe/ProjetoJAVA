@@ -81,11 +81,21 @@ public class Menu_Investidor extends javax.swing.JFrame {
 
         bt_comprar.setText("Comprar criptomoedas");
         bt_comprar.setActionCommand("");
+        bt_comprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_comprarActionPerformed(evt);
+            }
+        });
 
         lbl5.setText("5.");
 
         bt_vender.setText("Vender criptomoedas");
         bt_vender.setActionCommand("");
+        bt_vender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_venderActionPerformed(evt);
+            }
+        });
 
         lbl6.setText("6.");
 
@@ -167,18 +177,18 @@ public class Menu_Investidor extends javax.swing.JFrame {
                     .addComponent(bt_comprar)
                     .addComponent(lbl5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_vender)
-                    .addComponent(lbl6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_atualizar)
-                    .addComponent(lbl7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bt_sair)
-                    .addComponent(Sair))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl6)
+                    .addComponent(bt_vender))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl7)
+                    .addComponent(bt_atualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Sair)
+                    .addComponent(bt_sair))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {bt_atualizar, bt_comprar, bt_despositar, bt_extrato, bt_sacar, bt_sair, bt_saldo, bt_vender});
@@ -203,6 +213,18 @@ public class Menu_Investidor extends javax.swing.JFrame {
         this.setVisible(false);
         s.setVisible(true);
     }//GEN-LAST:event_bt_sacarActionPerformed
+
+    private void bt_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_comprarActionPerformed
+        CompraCriptomoedas cc = new CompraCriptomoedas();
+        this.setVisible(false);
+        cc.setVisible(true);
+    }//GEN-LAST:event_bt_comprarActionPerformed
+
+    private void bt_venderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_venderActionPerformed
+        VendaCriptomoedas vc = new VendaCriptomoedas();
+        this.setVisible(false);
+        vc.setVisible(true);
+    }//GEN-LAST:event_bt_venderActionPerformed
 
     /**
      * @param args the command line arguments

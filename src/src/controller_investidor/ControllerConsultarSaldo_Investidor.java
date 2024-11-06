@@ -37,9 +37,9 @@ public class ControllerConsultarSaldo_Investidor {
                 Double saldo_bit = res.getDouble("Bitcoin");
                 Investidor investidor1 = new Investidor(null, cpf, view.getTxtSenha().getText());
                 InvestidorDAO dao2 = new InvestidorDAO(conn);
-                ResultSet res2 = dao2.consultar(investidor1);
-                if(res2.next()){
-                    String nome = res2.getString("Nome");
+                res = dao2.consultar(investidor1);
+                if(res.next()){
+                    String nome = res.getString("Nome");
                     view.getTxtSaldo().setText("Nome: " + nome + " CPF: " + cpf + "\n Real: " + saldo_real + " Ethereum: " + saldo_ethereum + " Ripple: " + saldo_ripple + " Bitcoin: " + saldo_bit);
                 }
                 //JOptionPane.showMessageDialog(view, "Achei tua carteira irmão", "Aviso", JOptionPane.INFORMATION_MESSAGE);

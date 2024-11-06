@@ -11,9 +11,10 @@ public class Real extends Moedas{
         
     }
 
-    public Real(double saldo) {
-        super(saldo);
+    public Real(double saldo, double cotacao, String tipo) {
+        super(saldo, cotacao, tipo);
     }
+
 
     public void depositar(double valor){
         saldo += valor;

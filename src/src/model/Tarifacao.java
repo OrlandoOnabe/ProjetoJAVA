@@ -8,6 +8,7 @@ package model;
  *
  * @author xblak
  */
-public class Ripple {
-    
+public interface Tarifacao {
+    public void compra(double valor);
+    public void venda(double valor);
 }
