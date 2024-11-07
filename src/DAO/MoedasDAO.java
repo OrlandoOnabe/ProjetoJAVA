@@ -31,4 +31,13 @@ public class MoedasDAO {
         return resultado; 
     }
     
+    public void atualizarCotacao(Moedas moedas) throws SQLException{
+        String sql = "update moeda set \"Cotacao\" = ? where \"Tipo\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setDouble(1, moedas.getCotacao());
+        statement.setString(2, moedas.getTipo());
+        statement.execute();
+        conn.close();
+    }
+    
 }

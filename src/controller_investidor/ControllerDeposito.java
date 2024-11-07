@@ -6,6 +6,7 @@ package controller_investidor;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.ExtratoDAO;
 import DAO.InvestidorDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -18,22 +19,22 @@ import view_investidor.Deposito;
 
 public class ControllerDeposito {
     private Deposito view;
-    private static String SENHA;
+    private static String senhaLocal;
     
     public ControllerDeposito(Deposito view) {
         this.view = view;
     }
 
-    public static String getSENHA() {
-        return SENHA;
+    public static String getSenhaLocal() {
+        return senhaLocal;
     }
 
-    public static void setSENHA(String SENHA) {
-        ControllerDeposito.SENHA = SENHA;
+    public static void setSenhaLocal(String senhaLocal) {
+        ControllerDeposito.senhaLocal = senhaLocal;
     }
     
     public void depositoReal(){
-        Investidor investidor = new Investidor(null, null, SENHA);
+        Investidor investidor = new Investidor(null, null, senhaLocal);
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -49,6 +50,9 @@ public class ControllerDeposito {
                 view.getTxtSaldo().setText(String.valueOf(novo_saldo));
                 Moedas moedas = new Moedas(novo_saldo, 0, null);
                 dao.atualizar(moedas, investidor);
+                conn = conexao.getConnection();
+                ExtratoDAO dao2 = new ExtratoDAO(conn);
+                dao2.inserir(senhaLocal, "+", deposito, "Real", 0, 0);
                 JOptionPane.showMessageDialog(view, "Deposito feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
         }catch(SQLException e){

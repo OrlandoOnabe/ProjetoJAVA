@@ -6,28 +6,29 @@ package controller_investidor;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.ExtratoDAO;
 import DAO.MoedasDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import model.Investidor;
+import view_investidor.CompraCriptomoedas;
+import java.sql.SQLException;
 import javax.swing.JRadioButton;
 import model.Bitcoin;
 import model.Ethereum;
-import model.Investidor;
 import model.Moedas;
 import model.Ripple;
-import view_investidor.VendaCriptomoedas;
 
 /**
  *
  * @author xblak
  */
-public class ControllerVenda {
-    private VendaCriptomoedas view;
+public class ControllerCompra {
+    private CompraCriptomoedas view;
     private Double saldo_real, saldo_ripple, saldo_bitcoin, saldo_ethereum;
 
-    public ControllerVenda(VendaCriptomoedas view) {
+    public ControllerCompra(CompraCriptomoedas view) {
         this.view = view;
     }
     
@@ -73,7 +74,7 @@ public class ControllerVenda {
         }
     }
     
-    public void venderMoedas(){
+    public void comprarMoedas(){
         Moedas moedas = new Moedas(0,0, null);
         Investidor investidor = new Investidor(null, null, view.getTxtSenha().getText());
         Conexao conexao = new Conexao();
@@ -97,9 +98,9 @@ public class ControllerVenda {
             if(res.next()){
                 double cotacao = res.getDouble("Cotacao");
                 if(moedas.getTipo().equals("Ripple")){
-                    double valorvenda = Double.parseDouble(view.getTxtValor().getText());
+                    double valorcompra = Double.parseDouble(view.getTxtValor().getText());
                     Ripple ripple1 = new Ripple(saldo_ripple, saldo_real, cotacao, null);
-                    ripple1.venda(valorvenda);
+                    ripple1.compra(valorcompra);
                     double novo_saldoreal = ripple1.saldo;
                     double novo_saldoripple = ripple1.saldoRipple;
                     moedas = new Moedas(novo_saldoreal, 0, null);
@@ -108,12 +109,15 @@ public class ControllerVenda {
                     CarteiraDAO dao2 = new CarteiraDAO(conn);
                     dao2.atualizarRipple(ripple1, investidor);
                     dao2.atualizar(moedas, investidor);
+                    conn = conexao.getConnection();
+                    ExtratoDAO dao3 = new ExtratoDAO(conn);
+                    dao3.inserir(investidor.getSenha(), "+", valorcompra, "Ripple", cotacao, ripple1.taxaCompra);
                     JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else if(moedas.getTipo().equals("Bitcoin")){
-                    double valorvenda = Double.parseDouble(view.getTxtValor().getText());
+                    double valorcompra = Double.parseDouble(view.getTxtValor().getText());
                     Bitcoin bitcoin1 = new Bitcoin(saldo_bitcoin, saldo_real, cotacao, null);
-                    bitcoin1.venda(valorvenda);
+                    bitcoin1.compra(valorcompra);
                     double novo_saldoreal = bitcoin1.saldo;
                     double novo_saldoripple = bitcoin1.saldoBitcoin;
                     moedas = new Moedas(novo_saldoreal, 0, null);
@@ -122,12 +126,15 @@ public class ControllerVenda {
                     CarteiraDAO dao2 = new CarteiraDAO(conn);
                     dao2.atualizarBitcoin(bitcoin1, investidor);
                     dao2.atualizar(moedas, investidor);
+                    conn = conexao.getConnection();
+                    ExtratoDAO dao3 = new ExtratoDAO(conn);
+                    dao3.inserir(investidor.getSenha(), "+", valorcompra, "Bitcoin", cotacao, bitcoin1.taxaCompra);
                     JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else if(moedas.getTipo().equals("Ethereum")){
-                    double valorvenda = Double.parseDouble(view.getTxtValor().getText());
+                    double valorcompra = Double.parseDouble(view.getTxtValor().getText());
                     Ethereum ethereum1 = new Ethereum(saldo_ethereum, saldo_real, cotacao, null);
-                    ethereum1.venda(valorvenda);
+                    ethereum1.compra(valorcompra);
                     double novo_saldoreal = ethereum1.saldo;
                     double novo_saldoripple = ethereum1.saldoEthereum;
                     moedas = new Moedas(novo_saldoreal, 0, null);
@@ -136,6 +143,9 @@ public class ControllerVenda {
                     CarteiraDAO dao2 = new CarteiraDAO(conn);
                     dao2.atualizarEthereum(ethereum1, investidor);
                     dao2.atualizar(moedas, investidor);
+                    conn = conexao.getConnection();
+                    ExtratoDAO dao3 = new ExtratoDAO(conn);
+                    dao3.inserir(investidor.getSenha(), "+", valorcompra, "Ethereum", cotacao, ethereum1.taxaCompra);
                     JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
             }

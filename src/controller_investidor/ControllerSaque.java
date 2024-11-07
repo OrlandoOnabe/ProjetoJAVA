@@ -6,6 +6,7 @@ package controller_investidor;
 
 import DAO.CarteiraDAO;
 import DAO.Conexao;
+import DAO.ExtratoDAO;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,22 +22,22 @@ import view_investidor.Saque;
  */
 public class ControllerSaque {
     private Saque view;
-    private static String SENHA;
+    private static String senhaLocal;
 
     public ControllerSaque(Saque view) {
         this.view = view;
     }
 
-    public static String getSENHA() {
-        return SENHA;
+    public static String getSenhaLocal() {
+        return senhaLocal;
     }
 
-    public static void setSENHA(String SENHA) {
-        ControllerSaque.SENHA = SENHA;
+    public static void setSenhaLocal(String senhaLocal) {
+        ControllerSaque.senhaLocal = senhaLocal;
     }
     
     public void saqueReal(){
-        Investidor investidor = new Investidor(null, null, SENHA);
+        Investidor investidor = new Investidor(null, null, senhaLocal);
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -52,6 +53,9 @@ public class ControllerSaque {
                 view.getTxtSaldo().setText(String.valueOf(novo_saldo));
                 Moedas moedas = new Moedas(novo_saldo, 0, null);
                 dao.atualizar(moedas, investidor);
+                conn = conexao.getConnection();
+                ExtratoDAO dao2 = new ExtratoDAO(conn);
+                dao2.inserir(senhaLocal, "-", saque, "Real", 0, 0);
                 JOptionPane.showMessageDialog(view, "Saque feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
         }catch(SQLException e){

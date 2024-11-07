@@ -4,6 +4,8 @@
  */
 package view_investidor;
 
+import controller_investidor.ControllerCotacao;
+
 /**
  *
  * @author Darcio Rodrigues
@@ -56,6 +58,11 @@ public class Menu_Investidor extends javax.swing.JFrame {
 
         bt_extrato.setText("Consultar extrato");
         bt_extrato.setActionCommand("");
+        bt_extrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_extratoActionPerformed(evt);
+            }
+        });
 
         lbl2.setText("2.");
 
@@ -101,6 +108,11 @@ public class Menu_Investidor extends javax.swing.JFrame {
 
         bt_atualizar.setText("Atualizar cotação");
         bt_atualizar.setActionCommand("");
+        bt_atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_atualizarActionPerformed(evt);
+            }
+        });
 
         lbl7.setText("7.");
 
@@ -225,6 +237,18 @@ public class Menu_Investidor extends javax.swing.JFrame {
         this.setVisible(false);
         vc.setVisible(true);
     }//GEN-LAST:event_bt_venderActionPerformed
+
+    private void bt_extratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_extratoActionPerformed
+        Consultar_extrato ce = new Consultar_extrato();
+        this.setVisible(false);
+        ce.setVisible(true);
+    }//GEN-LAST:event_bt_extratoActionPerformed
+
+    private void bt_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_atualizarActionPerformed
+        AtualizarCotacao ac = new AtualizarCotacao();
+        this.setVisible(false);
+        ac.setVisible(true);
+    }//GEN-LAST:event_bt_atualizarActionPerformed
 
     /**
      * @param args the command line arguments

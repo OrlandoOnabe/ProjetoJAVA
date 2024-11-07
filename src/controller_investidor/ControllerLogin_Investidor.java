@@ -33,8 +33,8 @@ public class ControllerLogin_Investidor {
                 JOptionPane.showMessageDialog(view, "Login feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 Menu_Investidor mn = new Menu_Investidor();
                 String senha = investidor.getSenha();
-                ControllerDeposito.setSENHA(senha);
-                ControllerSaque.setSENHA(senha);
+                ControllerDeposito.setSenhaLocal(senha);
+                ControllerSaque.setSenhaLocal(senha);
                 view.setVisible(false);
                 mn.setVisible(true);
             }else{

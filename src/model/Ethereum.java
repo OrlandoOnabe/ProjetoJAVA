@@ -4,53 +4,53 @@ import javax.swing.JOptionPane;
 import view_investidor.CompraCriptomoedas;
 
 
-public class Bitcoin extends Moedas implements Tarifacao{
-    public double saldoBitcoin;
+public class Ethereum extends Moedas implements Tarifacao{
+    public double saldoEthereum;
     private CompraCriptomoedas view;
-    
-    public Bitcoin() {
+    public double taxaCompra = 0.01;
+    public double taxaVenda = 0.02;
+    public Ethereum() {
     }
 
-    public Bitcoin(double saldoBitcoin, double saldo, double cotacao, String tipo) {
+    public Ethereum(double saldoEthereum, double saldo, double cotacao, String tipo) {
         super(saldo, cotacao, tipo);
-        this.saldoBitcoin = saldoBitcoin;
+        this.saldoEthereum = saldoEthereum;
     }
 
     public void compra(double valor){
-        System.out.println("oi");
         double valorReal = valor * cotacao;
         if(valorReal > saldo){
              JOptionPane.showMessageDialog(view, "Saldo insuficiente", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            double taxa = valorReal * 0.01;
+            double taxa = valorReal * taxaCompra;
             double valorcompra = valorReal + taxa;
             saldo -= valorcompra;
-            saldoBitcoin += valor;
+            saldoEthereum += valor;
         }
     }
 
     public void venda(double valor){
-        System.out.println("oi");
         double valorReal = valor * cotacao;
-        if(valor > saldoBitcoin){
+        if(valor > saldoEthereum){
              JOptionPane.showMessageDialog(view, "Saldo insuficiente", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         else{
-            double taxa = valorReal * 0.01;
+            double taxa = valorReal * taxaVenda;
             double valorvenda = valorReal - taxa;
             saldo += valorvenda;
-            saldoBitcoin -= valor;
+            saldoEthereum -= valor;
         }
     }
-
-    public double getSaldoBitcoin() {
-        return saldoBitcoin;
-    }
-
-    public void setSaldoBitcoin(double saldoBitcoin) {
-        this.saldoBitcoin = saldoBitcoin;
-    }
     
+    public double getSaldoEthereum() {
+        return saldoEthereum;
+    }
+
+    public void setSaldoEthereum(double saldoEthereum) {
+        this.saldoEthereum = saldoEthereum;
+    }
+
+
     
 }
