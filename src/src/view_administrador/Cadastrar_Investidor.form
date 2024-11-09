@@ -29,23 +29,23 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lbl_senha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txt_senha" min="-2" pref="159" max="-2" attributes="0"/>
+                      <Component id="txtSenha" min="-2" pref="159" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lbl_cpf" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txt_cpf" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="txtCPF" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lbl_nome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txt_nome" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="txtNome" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="bt_cadastrarAdm" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCadastrar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="104" max="32767" attributes="0"/>
@@ -58,20 +58,20 @@
               <EmptySpace pref="76" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_nome" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lbl_senha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_senha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              <Component id="bt_cadastrarAdm" min="-2" max="-2" attributes="0"/>
+              <Component id="btCadastrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -93,16 +93,19 @@
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_nome">
+    <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_cpf">
+    <Component class="javax.swing.JTextField" name="txtCPF">
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_senha">
+    <Component class="javax.swing.JTextField" name="txtSenha">
     </Component>
-    <Component class="javax.swing.JButton" name="bt_cadastrarAdm">
+    <Component class="javax.swing.JButton" name="btCadastrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCadastrarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

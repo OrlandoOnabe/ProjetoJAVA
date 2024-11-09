@@ -65,4 +65,15 @@ public class CarteiraDAO {
         statement.setString(2, senha.getSenha());
         statement.execute();
     }
+    
+    public void inserir(Investidor investidor, Moedas saldo) throws SQLException{
+        String sql = "insert into carteira(\"Cpf\", \"Senha\", \"Real\", \"Ethereum\", \"Ripple\", \"Bitcoin\") values('"+
+                investidor.getCPF()     + "', '" +
+                investidor.getSenha()  + "', '" +
+                saldo.getSaldo() +"', '" + saldo.getSaldo() + "', '" + saldo.getSaldo() + "', '" + saldo.getSaldo() + "')";
+        System.out.println(sql);
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        conn.close();
+    }
 }

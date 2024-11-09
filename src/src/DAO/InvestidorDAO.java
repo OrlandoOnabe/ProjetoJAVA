@@ -41,4 +41,12 @@ public class InvestidorDAO {
         statement.execute();
         conn.close();
     }
+    
+    public void remover(Investidor investidor) throws SQLException{
+        String sql = "delete from investidor where \"Cpf\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getCPF());
+        statement.execute();
+        conn.close();
+    }
 }

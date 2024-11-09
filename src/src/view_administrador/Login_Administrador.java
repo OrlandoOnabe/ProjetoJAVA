@@ -4,6 +4,9 @@
  */
 package view_administrador;
 
+import controller_administrador.ControllerLogin_Administrador;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Darcio Rodrigues
@@ -15,8 +18,26 @@ public class Login_Administrador extends javax.swing.JFrame {
      */
     public Login_Administrador() {
         initComponents();
+        c = new ControllerLogin_Administrador(this);
     }
 
+    public JTextField getTxtCpf() {
+        return txtCpf;
+    }
+
+    public void setTxtCpf(JTextField txtCpf) {
+        this.txtCpf = txtCpf;
+    }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,13 +48,10 @@ public class Login_Administrador extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_cpfAdm = new javax.swing.JLabel();
-        txt_cpfAdm = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         lbl_senhaAdm = new javax.swing.JLabel();
-        pf_senhaAdm = new javax.swing.JPasswordField();
-        bt_loginAdm = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        btLogin = new javax.swing.JButton();
+        txtSenha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,17 +59,12 @@ public class Login_Administrador extends javax.swing.JFrame {
 
         lbl_senhaAdm.setText("Senha:");
 
-        pf_senhaAdm.setText("jPasswordField1");
-
-        bt_loginAdm.setText("Login");
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
+        btLogin.setText("Login");
+        btLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,14 +78,14 @@ public class Login_Administrador extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbl_senhaAdm)
                                 .addGap(18, 18, 18)
-                                .addComponent(pf_senhaAdm))
+                                .addComponent(txtSenha))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbl_cpfAdm)
                                 .addGap(28, 28, 28)
-                                .addComponent(txt_cpfAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(bt_loginAdm)))
+                        .addComponent(btLogin)))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -81,18 +94,22 @@ public class Login_Administrador extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cpfAdm)
-                    .addComponent(txt_cpfAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_senhaAdm)
-                    .addComponent(pf_senhaAdm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(bt_loginAdm)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(btLogin)
                 .addGap(69, 69, 69))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
+        c.loginAdministrador();
+    }//GEN-LAST:event_btLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,15 +145,13 @@ public class Login_Administrador extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private ControllerLogin_Administrador c;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_loginAdm;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton btLogin;
     private javax.swing.JLabel lbl_cpfAdm;
     private javax.swing.JLabel lbl_senhaAdm;
-    private javax.swing.JPasswordField pf_senhaAdm;
-    private javax.swing.JTextField txt_cpfAdm;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

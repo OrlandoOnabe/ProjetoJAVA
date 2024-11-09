@@ -1,5 +1,7 @@
 package view_administrador;
 
+import model.Investidor;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -50,11 +52,21 @@ public class Menu_Administrador extends javax.swing.JFrame {
         lbl1.setText("1.");
 
         bt_cadastrarInvestidor.setText("Cadastrar  novo investidor");
+        bt_cadastrarInvestidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_cadastrarInvestidorActionPerformed(evt);
+            }
+        });
 
         lbl2.setText("2.");
 
         bt_excluirInvestidor.setText("Excluir investidor");
         bt_excluirInvestidor.setActionCommand("");
+        bt_excluirInvestidor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_excluirInvestidorActionPerformed(evt);
+            }
+        });
 
         lbl3.setText("3.");
 
@@ -167,6 +179,19 @@ public class Menu_Administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bt_cadastrarInvestidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastrarInvestidorActionPerformed
+        Cadastrar_Investidor ci = new Cadastrar_Investidor();
+        this.setVisible(false);
+        ci.setVisible(true);
+    }//GEN-LAST:event_bt_cadastrarInvestidorActionPerformed
+
+    private void bt_excluirInvestidorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_excluirInvestidorActionPerformed
+
+        Excluir_Investidor ei = new Excluir_Investidor();
+        this.setVisible(false);
+        ei.setVisible(true);
+    }//GEN-LAST:event_bt_excluirInvestidorActionPerformed
 
     /**
      * @param args the command line arguments

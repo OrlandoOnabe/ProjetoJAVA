@@ -4,6 +4,9 @@
  */
 package view_administrador;
 
+import controller_administrador.ControllerCadastroInvestidor;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Darcio Rodrigues
@@ -15,6 +18,7 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
      */
     public Cadastrar_Investidor() {
         initComponents();
+        c = new ControllerCadastroInvestidor(this);
     }
 
     /**
@@ -29,10 +33,10 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
         lbl_nome = new javax.swing.JLabel();
         lbl_cpf = new javax.swing.JLabel();
         lbl_senha = new javax.swing.JLabel();
-        txt_nome = new javax.swing.JTextField();
-        txt_cpf = new javax.swing.JTextField();
-        txt_senha = new javax.swing.JTextField();
-        bt_cadastrarAdm = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
+        btCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +46,12 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
 
         lbl_senha.setText("Senha:");
 
-        bt_cadastrarAdm.setText("Cadastrar");
+        btCadastrar.setText("Cadastrar");
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,19 +63,19 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_senha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lbl_cpf)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lbl_nome)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(bt_cadastrarAdm)))
+                        .addComponent(btCadastrar)))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,22 +84,26 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
                 .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nome)
-                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_cpf)
-                    .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_senha)
-                    .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
-                .addComponent(bt_cadastrarAdm)
+                .addComponent(btCadastrar)
                 .addGap(59, 59, 59))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        c.cadastroInvestidor();
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,13 +141,38 @@ public class Cadastrar_Investidor extends javax.swing.JFrame {
 //        });
 //    }
 
+    public JTextField getTxtCPF() {
+        return txtCPF;
+    }
+
+    public void setTxtCPF(JTextField txtCPF) {
+        this.txtCPF = txtCPF;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JTextField txtNome) {
+        this.txtNome = txtNome;
+    }
+
+    public JTextField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public void setTxtSenha(JTextField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
+    private ControllerCadastroInvestidor c;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_cadastrarAdm;
+    private javax.swing.JButton btCadastrar;
     private javax.swing.JLabel lbl_cpf;
     private javax.swing.JLabel lbl_nome;
     private javax.swing.JLabel lbl_senha;
-    private javax.swing.JTextField txt_cpf;
-    private javax.swing.JTextField txt_nome;
-    private javax.swing.JTextField txt_senha;
+    private javax.swing.JTextField txtCPF;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

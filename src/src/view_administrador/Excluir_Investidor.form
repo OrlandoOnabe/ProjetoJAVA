@@ -29,7 +29,7 @@
                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txt_cpf" min="-2" pref="180" max="-2" attributes="0"/>
+                      <Component id="txtCPF" min="-2" pref="180" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
@@ -37,7 +37,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                      <Component id="bt_excluir" min="-2" max="-2" attributes="0"/>
+                      <Component id="btExcluir" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="79" max="32767" attributes="0"/>
@@ -52,10 +52,10 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txt_cpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCPF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="60" max="32767" attributes="0"/>
-              <Component id="bt_excluir" min="-2" max="-2" attributes="0"/>
+              <Component id="btExcluir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -67,17 +67,20 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_cpf">
+    <Component class="javax.swing.JTextField" name="txtCPF">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Insira abaixo o CPF do investidor a ser exlu&#xed;do."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="bt_excluir">
+    <Component class="javax.swing.JButton" name="btExcluir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btExcluirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

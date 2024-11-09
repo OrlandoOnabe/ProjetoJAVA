@@ -129,6 +129,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar  novo investidor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_cadastrarInvestidorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl2">
       <Properties>
@@ -140,6 +143,9 @@
         <Property name="text" type="java.lang.String" value="Excluir investidor"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_excluirInvestidorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbl3">
       <Properties>

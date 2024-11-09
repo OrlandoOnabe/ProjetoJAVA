@@ -4,6 +4,10 @@
  */
 package view_administrador;
 
+import controller_administrador.ControllerExcluirInvestidor;
+import javax.swing.JTextField;
+import model.Investidor;
+
 /**
  *
  * @author Darcio Rodrigues
@@ -15,7 +19,17 @@ public class Excluir_Investidor extends javax.swing.JFrame {
      */
     public Excluir_Investidor() {
         initComponents();
+        c = new ControllerExcluirInvestidor(this);
     }
+
+    public JTextField getTxtCPF() {
+        return txtCPF;
+    }
+
+    public void setTxtCPF(JTextField txtCPF) {
+        this.txtCPF = txtCPF;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,9 +41,9 @@ public class Excluir_Investidor extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txt_cpf = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        bt_excluir = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,7 +51,12 @@ public class Excluir_Investidor extends javax.swing.JFrame {
 
         jLabel2.setText("Insira abaixo o CPF do investidor a ser exluído.");
 
-        bt_excluir.setText("Excluir");
+        btExcluir.setText("Excluir");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,13 +68,13 @@ public class Excluir_Investidor extends javax.swing.JFrame {
                         .addGap(90, 90, 90)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(77, 77, 77)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addComponent(bt_excluir)))
+                        .addComponent(btExcluir)))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -66,14 +85,18 @@ public class Excluir_Investidor extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(bt_excluir)
+                .addComponent(btExcluir)
                 .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+        c.excluirInvestidor();
+    }//GEN-LAST:event_btExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,11 +132,12 @@ public class Excluir_Investidor extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private ControllerExcluirInvestidor c;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_excluir;
+    private javax.swing.JButton btExcluir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txt_cpf;
+    private javax.swing.JTextField txtCPF;
     // End of variables declaration//GEN-END:variables
 }
