@@ -42,6 +42,7 @@ Observações:
         Cobra uma taxa de 1% na venda de ripple
 
 Responsáveis pelo projeto:
+
   Orlando Nagrockis Bertholdo - R.A.:  24.223.003-5
   
   Morgana Rodrigues Zanetti   - R.A.:  24.223.010-0
