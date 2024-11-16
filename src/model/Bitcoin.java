@@ -28,6 +28,7 @@ public class Bitcoin extends Moedas implements Tarifacao{
             double valorcompra = valorReal + taxacompra;
             saldo -= valorcompra;
             saldoBitcoin += valor;
+            JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -40,6 +41,7 @@ public class Bitcoin extends Moedas implements Tarifacao{
             double valorvenda = valorReal - taxavenda;
             saldo += valorvenda;
             saldoBitcoin -= valor;
+            JOptionPane.showMessageDialog(view, "Venda efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

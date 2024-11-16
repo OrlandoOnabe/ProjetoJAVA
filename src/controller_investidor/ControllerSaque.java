@@ -49,14 +49,13 @@ public class ControllerSaque {
                 double saque = Double.parseDouble(view.getTxtSacar().getText());
                 real.sacar(saque);
                 double novo_saldo = real.saldo;
-                System.out.println(novo_saldo);
                 view.getTxtSaldo().setText(String.valueOf(novo_saldo));
                 Moedas moedas = new Moedas(novo_saldo, 0, null, 0, 0);
                 dao.atualizar(moedas, investidor);
                 conn = conexao.getConnection();
                 ExtratoDAO dao2 = new ExtratoDAO(conn);
                 dao2.inserir(senhaLocal, "-", saque, "Real", 0, 0);
-                JOptionPane.showMessageDialog(view, "Saque feito", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view, "Erro de conexão", "Erro", JOptionPane.ERROR_MESSAGE);

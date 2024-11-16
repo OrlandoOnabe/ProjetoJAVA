@@ -21,8 +21,8 @@ public class Real extends Moedas{
     }
     
     public void sacar(double valor){
-        if(saldo == 0){
-            JOptionPane.showMessageDialog(view, "Saldo zero", "Erro", JOptionPane.ERROR_MESSAGE);
+        if(valor > saldo){
+            JOptionPane.showMessageDialog(view, "Saldo insuficiente", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         else{
             saldo -= valor;

@@ -113,7 +113,6 @@ public class ControllerVenda {
                     conn = conexao.getConnection();
                     ExtratoDAO dao3 = new ExtratoDAO(conn);
                     dao3.inserir(investidor.getSenha(), "-", valorvenda, "Ripple", cotacao, taxa);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else if(moedas.getTipo().equals("Bitcoin")){
                     double valorvenda = Double.parseDouble(view.getTxtValor().getText());
@@ -131,7 +130,6 @@ public class ControllerVenda {
                     conn = conexao.getConnection();
                     ExtratoDAO dao3 = new ExtratoDAO(conn);
                     dao3.inserir(investidor.getSenha(), "-", valorvenda, "Bitcoin", cotacao, taxa);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else if(moedas.getTipo().equals("Ethereum")){
                     double valorvenda = Double.parseDouble(view.getTxtValor().getText());
@@ -149,7 +147,6 @@ public class ControllerVenda {
                     conn = conexao.getConnection();
                     ExtratoDAO dao3 = new ExtratoDAO(conn);
                     dao3.inserir(investidor.getSenha(), "-", valorvenda, "Ethereum", cotacao, taxa);
-                    JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
             else{

@@ -4,6 +4,7 @@
  */
 package controller_administrador;
 
+import DAO.CarteiraDAO;
 import DAO.Conexao;
 import DAO.InvestidorDAO;
 import java.sql.Connection;
@@ -33,6 +34,9 @@ public class ControllerExcluirInvestidor {
             Connection conn = conexao.getConnection();
             InvestidorDAO dao = new InvestidorDAO(conn);
             dao.remover(investidor);
+            conn = conexao.getConnection();
+            CarteiraDAO dao2 = new CarteiraDAO(conn);
+            dao2.remover(investidor);
             JOptionPane.showMessageDialog(view, "Investidor removido com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
            } catch(SQLException e){
                JOptionPane.showMessageDialog(view, "Erro ao remover", "Erro", JOptionPane.ERROR_MESSAGE);

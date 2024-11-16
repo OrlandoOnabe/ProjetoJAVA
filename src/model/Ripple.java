@@ -32,6 +32,7 @@ public class Ripple extends Moedas implements Tarifacao{
             double valorcompra = valorReal + taxacompra;
             saldo -= valorcompra;
             saldoRipple += valor;
+            JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -44,6 +45,7 @@ public class Ripple extends Moedas implements Tarifacao{
             double valorvenda = valorReal - taxavenda;
             saldo += valorvenda;
             saldoRipple -= valor;
+            JOptionPane.showMessageDialog(view, "Venda efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

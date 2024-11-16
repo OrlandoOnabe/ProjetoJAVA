@@ -29,6 +29,7 @@ public class Ethereum extends Moedas implements Tarifacao{
             double valorcompra = valorReal + taxacompra;
             saldo -= valorcompra;
             saldoEthereum += valor;
+            JOptionPane.showMessageDialog(view, "Compra efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -41,6 +42,7 @@ public class Ethereum extends Moedas implements Tarifacao{
             double valorvenda = valorReal - taxavenda;
             saldo += valorvenda;
             saldoEthereum -= valor;
+            JOptionPane.showMessageDialog(view, "Venda efetuada com sucesso", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
