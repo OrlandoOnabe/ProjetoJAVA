@@ -1,13 +1,14 @@
 # Projeto
 Exchange de Criptomoedas - Projeto universitário 
 
-O que é uma exchange de criptomoedas?
-  Exchanges são plataformas digitais onde é possível comprar, vender, trocar e guardar criptomoedas. Elas funcionam como intermediárias entre compradores e vendedores de criptomoedas e, além disso, oferecem serviços de custódia, ou seja, armazenam as criptomoedas dos investidores que preferem não mantê-las em carteiras próprias.
+Neste repósitorio, temos o arquivo zip do projeto com todas as pastas necessárias para teste no netbeans ao fazer download. Também temos a pasta src, onde é possível vizualizar o codigo sem ter que baixar o projeto, para uma vizualização mais rápida das classes e janelas criadas para o projeto.
 
 Objetivo do Projeto
+
  Este projeto foi desenvolvido em Java com o objetivo de simular uma exchange de criptomoedas. O código é dividido em duas partes principais, representadas por duas interfaces gráficas (GUI): uma para investidores e outra para administradores.
 
  Funcionalidades para Investidores
+ 
    Após a realização do adastro, o investidor tem acesso a um menu com as seguintes opçôes:
     1. Consultar saldo (reais, bitcoin, ethereum e ripple)
     2. Consultar extrato
@@ -19,6 +20,7 @@ Objetivo do Projeto
     8. Sair (encerrar o programa e fechar janela)
 
 Funcionalidades para Administradores
+
   Ao iniciar o programa, primeiro deve ser realizado o cadastro de um investidor. Após o cadastro, o administrador pode acessar o menu de administração, que conta com as seguintes opções:
     1. Efetuar login
     2. Cadastrar novos investidores
@@ -30,6 +32,7 @@ Funcionalidades para Administradores
     8. Atualizar cotação das criptomoedas
 
 Observações:
+
   A plataforma conta com 3 tipos de criptomoedas, cada uma com sua estrutura de taxas de transação específica:
     1. Bitcoin
         Cobra uma taxa de 2% na compra de bitcoin
